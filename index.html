@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Expose</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <h1>Expose</h1>
+
+    <div id="dropzone" tabindex="0">
+      <p id="dropzone-label">Drop an image or single-page PDF here<br />or tap to choose a file</p>
+      <p id="file-name"></p>
+      <input type="file" id="file-input" accept="image/png,image/jpeg,application/pdf" hidden />
+    </div>
+
+    <div id="preview-wrap" hidden>
+      <canvas id="preview-canvas"></canvas>
+    </div>
+
+    <label class="setting-row">
+      Poster width (mm)
+      <input type="number" id="setting-width" min="1" step="1" />
+    </label>
+    <label class="setting-row">
+      Poster height (mm)
+      <input type="number" id="setting-height" min="1" step="1" />
+    </label>
+
+    <label class="setting-row">
+      Overlap (mm)
+      <input type="number" id="setting-overlap" value="20" min="0" step="1" />
+    </label>
+    <label class="setting-row">
+      Printer margin (mm)
+      <input type="number" id="setting-margin" value="10" min="0" step="1" />
+    </label>
+
+    <label id="labels-row">
+      <input type="checkbox" id="setting-labels" checked autocomplete="off" />
+      Add assembly labels (R1C1, R1C2, …) in the overlap
+    </label>
+
+    <div id="stats" hidden></div>
+
+    <button id="make-btn" hidden>Make Poster Sheets</button>
+
+    <div id="messages"></div>
+
+    <div id="downloads" hidden>
+      <a id="download-real" class="download-btn" download="poster-sheets.pdf">Download Poster Sheets</a>
+    </div>
+  </div>
+
+  <script src="vendor/pdf-lib.min.js"></script>
+  <script src="vendor/pdf.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
